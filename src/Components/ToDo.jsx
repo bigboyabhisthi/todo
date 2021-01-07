@@ -8,9 +8,13 @@ const ToDo = props => {
 		return toggleCompleted(id);
 	};
 
+	const labelStyle = {
+		textDecoration: 'line-through',
+	};
+
 	return (
 		<div>
-			<label htmlFor='task'>
+			<label htmlFor='task' style={completed ? labelStyle : {}}>
 				<input
 					type='checkbox'
 					name='task'
