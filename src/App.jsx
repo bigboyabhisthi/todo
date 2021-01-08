@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { uuid } from 'uuidv4';
 import ToDoList from './Components/ToDoList';
+import './App.css';
 
 const LOCAL_STORAGE_KEY = 'madhavrjha@github.io/todo.todo-list';
 
@@ -66,18 +67,25 @@ const App = () => {
 
 	return (
 		<div className='App'>
-			<h1>ToDo</h1>
-			<form onSubmit={preventFormSubmission}>
-				<input
-					type='text'
-					name='taskName'
-					value={taskName}
-					onChange={handleChange}
-				/>
-				<button type='submit' onClick={addTaskToList}>
-					Add
-				</button>
-				<button onClick={removeCompletedTask}>Remove All Completed</button>
+			<h1 className='header'>
+				Todo - <span className='smallHeading'> Set Your Daily Objective</span>
+			</h1>
+			<form className='subHeader' onSubmit={preventFormSubmission}>
+				<div className='inputBox'>
+					<input
+						type='text'
+						name='taskName'
+						placeholder='Enter Your Task'
+						value={taskName}
+						onChange={handleChange}
+					/>
+				</div>
+				<div className='actionBox'>
+					<button type='submit' onClick={addTaskToList}>
+						Add
+					</button>
+					<button onClick={removeCompletedTask}>Remove All Completed</button>
+				</div>
 			</form>
 			<p>{countIncompletedTask()} task remaining</p>
 			<ToDoList taskList={taskList} toggleCompleted={toggleCompleted} />
