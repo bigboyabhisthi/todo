@@ -4,7 +4,7 @@ import ToDo from './ToDo';
 const ToDoList = props => {
 	const { taskList, toggleCompleted } = props;
 	return (
-		<React.Fragment>
+		<div className='todoList'>
 			{taskList.map(task => (
 				<ToDo
 					id={task.id}
@@ -14,7 +14,7 @@ const ToDoList = props => {
 					toggleCompleted={toggleCompleted}
 				/>
 			))}
-		</React.Fragment>
+		</div>
 	);
 };
 

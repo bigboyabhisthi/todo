@@ -25,19 +25,18 @@ const App = () => {
 		setTaskList(newTaskList);
 	};
 
-	const preventFormSubmission = e => {
-		e.preventDefault();
-	};
-
 	const handleChange = e => {
 		setTaskName(e.target.value);
 	};
 
 	const addTaskToList = e => {
-		const copyTaskName = taskName.toLocaleLowerCase();
+		e.preventDefault();
 
-		const isEmpty = copyTaskName === '';
-		const isExist = taskList.find(task => copyTaskName === task.name);
+		// const copyTaskName = taskName.toLocaleLowerCase();
+		const isEmpty = taskName === '';
+		const isExist = taskList.find(
+			task => taskName.toLocaleLowerCase() === task.name.toLocaleLowerCase()
+		);
 
 		if (!isEmpty && !isExist) {
 			setTaskName('');
@@ -45,7 +44,7 @@ const App = () => {
 				...prevTaskList,
 				{
 					id: uuid(),
-					name: copyTaskName,
+					name: taskName,
 					completed: false,
 				},
 			]);
@@ -67,28 +66,34 @@ const App = () => {
 
 	return (
 		<div className='App'>
-			<h1 className='header'>
-				Todo - <span className='smallHeading'> Set Your Daily Objective</span>
-			</h1>
-			<form className='subHeader' onSubmit={preventFormSubmission}>
-				<div className='inputBox'>
-					<input
-						type='text'
-						name='taskName'
-						placeholder='Enter Your Task'
-						value={taskName}
-						onChange={handleChange}
-					/>
-				</div>
-				<div className='actionBox'>
-					<button type='submit' onClick={addTaskToList}>
-						Add
-					</button>
-					<button onClick={removeCompletedTask}>Remove All Completed</button>
-				</div>
-			</form>
-			<p>{countIncompletedTask()} task remaining</p>
-			<ToDoList taskList={taskList} toggleCompleted={toggleCompleted} />
+			<h1 className='header'>Todo</h1>
+			<div className='container'>
+				<form className='getArea' onSubmit={addTaskToList}>
+					<div className='inputBox'>
+						<input
+							type='text'
+							name='taskName'
+							placeholder='Enter Your Task'
+							value={taskName}
+							onChange={handleChange}
+						/>
+					</div>
+					<div className='actionArea'>
+						<p>
+							{countIncompletedTask() === 0 ? 'No' : countIncompletedTask()}{' '}
+							Tasks Remaining
+						</p>
+						<button
+							className='myButton'
+							title='Remove Completed'
+							onClick={removeCompletedTask}
+						>
+							<i class='fa fa-trash' aria-hidden='true'></i>
+						</button>
+					</div>
+				</form>
+				<ToDoList taskList={taskList} toggleCompleted={toggleCompleted} />
+			</div>
 		</div>
 	);
 };

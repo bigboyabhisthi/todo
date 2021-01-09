@@ -1,0 +1,35 @@
+.todoContainer {
+	margin-top: 10px;
+	margin-left: 10px;
+	text-align: left;
+}
+
+label {
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+}
+
+input[type='checkbox'] {
+	display: none;
+}
+
+.todoContainer i {
+	margin-right: 10px;
+}
+
+.todoContainer .fa-check-circle {
+	color: #758283;
+	cursor: pointer;
+}
+
+span {
+	color: #0d0d0d;
+	font-size: 1rem;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: pointer;
+}
