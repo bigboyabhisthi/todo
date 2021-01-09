@@ -1,16 +1,24 @@
 .todoContainer {
-	margin-top: 10px;
-	margin-left: 10px;
+	padding: 5px 0;
 	text-align: left;
+	box-sizing: border-box;
+	border-left: 2px solid #fff;
+}
+
+.todoContainer:hover {
+	border-left: 2px solid #0d0d0d;
 }
 
 label {
 	display: flex;
+	margin-left: 10px;
 	align-items: center;
 	font-size: 1.2rem;
+	cursor: pointer;
 }
 
-input[type='checkbox'] {
+input[type='checkbox'],
+input[type='checkbox']:checked {
 	display: none;
 }
 
@@ -20,7 +28,6 @@ input[type='checkbox'] {
 
 .todoContainer .fa-check-circle {
 	color: #758283;
-	cursor: pointer;
 }
 
 span {
@@ -31,5 +38,4 @@ span {
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
-	cursor: pointer;
 }

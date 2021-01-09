@@ -5,7 +5,7 @@ const ToDo = props => {
 	const { id, name, completed, toggleCompleted } = props;
 
 	const callToggleCompleted = e => {
-		console.log(`${name}: ${!completed}`);
+		console.log((e.target.checked = !e.target.checked));
 		return toggleCompleted(id);
 	};
 
