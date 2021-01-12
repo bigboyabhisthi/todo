@@ -66,7 +66,10 @@ const App = () => {
 
 	return (
 		<div className='App'>
-			<h1 className='header'>Todo</h1>
+			<h1 className='header'>
+				Todo
+				<p> - drive you way to productivity </p>
+			</h1>
 			<div className='container'>
 				<form className='getArea' onSubmit={addTaskToList}>
 					<div className='inputBox'>

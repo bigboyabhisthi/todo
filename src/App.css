@@ -18,6 +18,10 @@ h1.header {
 	box-shadow: 5px 5px 10px #ccc;
 }
 
+.header p {
+	font-size: 0.9rem;
+}
+
 .container {
 	width: 100%;
 	min-height: 350px;
