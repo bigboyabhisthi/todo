@@ -3,10 +3,11 @@
 	text-align: left;
 	box-sizing: border-box;
 	border-left: 2px solid #fff;
+	overflow: hidden;
 }
 
 .todoContainer:hover {
-	border-left: 2px solid #0d0d0d;
+	border-left: 2px solid #383cc1;
 }
 
 label {
@@ -15,6 +16,8 @@ label {
 	align-items: center;
 	font-size: 1.2rem;
 	cursor: pointer;
+	white-space: normal;
+	word-wrap: break-word;
 }
 
 input[type='checkbox'],
